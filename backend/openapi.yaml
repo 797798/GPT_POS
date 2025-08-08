@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: GPT POS API
+  version: 1.0.0
+servers:
+  - url: http://localhost/api
+paths:
+  /products:
+    get:
+      summary: List products
+      tags: [Inventory]
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create product
+      tags: [Inventory]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: Created
+  /sales:
+    post:
+      summary: Create sale
+      tags: [Register]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sale'
+      responses:
+        '201':
+          description: Created
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id: { type: integer }
+        sku: { type: string }
+        name: { type: string }
+        price: { type: number, format: float }
+        vat_rate: { type: number, format: float }
+    Sale:
+      type: object
+      properties:
+        id: { type: integer }
+        customer_id: { type: integer, nullable: true }
+        total: { type: number, format: float }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              product_id: { type: integer }
+              quantity: { type: number }
+              price: { type: number, format: float }
