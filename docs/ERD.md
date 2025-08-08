@@ -1,21 +1,9 @@
-# ERD
-
-```mermaid
 erDiagram
-    USER ||--o{ USER_ROLE : has
-    ROLE ||--o{ USER_ROLE : assigns
-    ROLE ||--o{ ROLE_PERMISSION : grants
-    PERMISSION ||--o{ ROLE_PERMISSION : belongs
+    PRODUCT ||--o{ SALE_ITEM : contains
+    SALE ||--o{ SALE_ITEM : has
     CUSTOMER ||--o{ SALE : makes
-    SALE ||--o{ SALE_ITEM : contains
-    PRODUCT ||--o{ SALE_ITEM : sold_as
-```
-
-## Entities
-- **User**: system users with credentials.
-- **Role**: groups of permissions.
-- **Permission**: granular actions.
-- **Customer**: retail customers.
-- **Product**: sellable items.
-- **Sale**: transaction header.
-- **SaleItem**: line items for each sale.
+    USER ||--o{ SALE : processes
+    ROLE ||--o{ USER : assigns
+    PERMISSION ||--o{ ROLE : grants
+    WAREHOUSE ||--o{ STOCK : holds
+    PRODUCT ||--o{ STOCK : stored_in
