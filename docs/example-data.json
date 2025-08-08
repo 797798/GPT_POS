@@ -1,0 +1,10 @@
+{
+  "products": [
+    {"sku": "1001", "name": "T-Shirt", "price": 250.00, "vat_rate": 7},
+    {"sku": "1002", "name": "Jeans", "price": 1200.00, "vat_rate": 7}
+  ],
+  "customers": [
+    {"name": "Somchai", "email": "somchai@example.com", "phone": "0810000000"},
+    {"name": "Suda", "email": "suda@example.com", "phone": "0820000000"}
+  ]
+}

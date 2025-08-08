@@ -9,6 +9,12 @@ paths:
     get:
       summary: List products
       tags: [Inventory]
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+          description: Search term for SKU or name
       responses:
         '200':
           description: OK
